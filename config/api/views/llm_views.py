@@ -8,15 +8,15 @@ def llm_function(request):
         try:
             # 1️⃣ JSON 파싱
             body = json.loads(request.body)
-            text = body.get("test")
+            text = body.get("input")
 
             if not text:
                 return JsonResponse({'error': 'test 값 없음'}, status=400)
 
             # 2️⃣ LLM 서비스 호출
-            result = analyze_text({"result": text})
+            result = analyze_text(text)
 
             # 3️⃣ JSON 응답
-            return JsonResponse(json.loads(result))
+            return JsonResponse(result, safe=False)
         except Exception as e:
             return HttpResponse(str(e), status=500)

@@ -2,6 +2,7 @@ from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
 from ..services.ocr_service import extract_text
 
+@csrf_exempt
 def test_api(request):
     return JsonResponse({"message": "ok"})
 
