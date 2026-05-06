@@ -24,16 +24,16 @@ jobs:
             --document-name "AWS-RunShellScript" \
             --parameters 'commands=[
               "cd /home/ssm-user/shotudy-back/config",
-              "pwd",
-              "ls",
-              "pkill -f gunicorn || true"
+              "git pull origin develop",
+              "pkill -f gunicorn || true",
+              "nohup /home/ssm-user/.local/bin/gunicorn config.wsgi:application --bind 127.0.0.1:8000 > gunicorn.log 2>&1 &"
             ]' \
             --query "Command.CommandId" \
             --output text)
 
           echo "COMMAND_ID=$COMMAND_ID"
 
-          sleep 5
+          sleep 10
 
           aws ssm get-command-invocation \
             --command-id $COMMAND_ID \
