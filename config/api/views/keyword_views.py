@@ -1,6 +1,6 @@
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from api.services.keyword_service import extract_keyword
+from api.services.llm_keyword import extract_keyword
 
 @csrf_exempt
 def keyword_function(request):

@@ -1,8 +1,10 @@
 from openai import OpenAI
 import os
 import json
+from dotenv import load_dotenv
 
-client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+load_dotenv()
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 SYSTEM_PROMPT = """
 주어진 텍스트에서 가장 핵심적인 단어 1개만 추출하세요.

@@ -1,9 +1,9 @@
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
-from api.services.learning_service import generate_learning_content
+from api.services.llm_learning import generate_learning_content
 
 @csrf_exempt
-def learning_fubnction(request):
+def learning_function(request):
     if request.method == "POST":
         keyword = request.POST.get("keyword")
 

@@ -2,8 +2,10 @@ from openai import OpenAI
 import os
 import json
 import re
+from dotenv import load_dotenv
 
-client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+load_dotenv()
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 SYSTEM_PROMPT = """
 당신은 OCR 결과물을 정제하는 자연어 처리 전문가입니다.

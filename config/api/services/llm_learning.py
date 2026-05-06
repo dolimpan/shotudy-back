@@ -2,7 +2,10 @@ from openai import OpenAI
 import os
 import json
 
-client = OpenAI(api_key=os.environ.get("OPENAI_API_KEY"))
+from dotenv import load_dotenv
+
+load_dotenv()
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 SYSTEM_PROMPT = """
 주어진 단어를 기반으로 학습 콘텐츠를 생성하세요.
