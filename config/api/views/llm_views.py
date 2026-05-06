@@ -8,7 +8,7 @@ def llm_function(request):
         try:
             # 1️⃣ JSON 파싱
             body = json.loads(request.body)
-            text = body.get("input1")
+            text = body.get("input123")
 
             if not text:
                 return JsonResponse({'error': 'test 값 없음'}, status=400)
