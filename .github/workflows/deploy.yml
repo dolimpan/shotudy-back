@@ -26,7 +26,9 @@ jobs:
               "cd /home/ssm-user/shotudy-back/config",
               "git pull origin develop",
               "pkill -f gunicorn || true",
-              "nohup /home/ssm-user/.local/bin/gunicorn config.wsgi:application --bind 127.0.0.1:8000 > gunicorn.log 2>&1 &"
+              "nohup /home/ssm-user/.local/bin/gunicorn config.wsgi:application --bind 127.0.0.1:8000 > gunicorn.log 2>&1 &",
+              "sleep 5",
+              "cat gunicorn.log"
             ]' \
             --query "Command.CommandId" \
             --output text)
