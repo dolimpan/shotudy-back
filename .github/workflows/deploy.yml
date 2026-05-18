@@ -25,6 +25,7 @@ jobs:
             --parameters 'commands=[
               "cd /home/ssm-user/shotudy-back/config",
               "git pull origin develop",
+              "python manage.py migrate",
               "pkill -f gunicorn || true",
               "sudo -u ssm-user nohup /home/ssm-user/.local/bin/gunicorn config.wsgi:application --bind 127.0.0.1:8000 > gunicorn.log 2>&1 &",
               "sleep 5",
