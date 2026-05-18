@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 from pathlib import Path
 from dotenv import load_dotenv
 import os
+from datetime import timedelta
 
 load_dotenv()
 
@@ -42,7 +43,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     'api',
     'drf_spectacular',
-    'corsheaders'
+    'corsheaders',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -81,8 +83,12 @@ WSGI_APPLICATION = "config.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'shotudy',
+        'USER': 'shotudy_user',
+        'PASSWORD': os.getenv("DB_PASSWORD"),
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -127,3 +133,28 @@ CORS_ALLOW_ALL_ORIGINS = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = "static/"
+
+AUTH_USER_MODEL = "api.User"
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://friendly-computing-machine-g4qj4qw9j4pgfp7gg-8000.app.github.dev",
+    "http://localhost:8000",
+    "https://localhost:8000",
+]
+
+CORS_ALLOWED_ORIGINS = [
+    "https://friendly-computing-machine-g4qj4qw9j4pgfp7gg-8000.app.github.dev",
+    "http://localhost:8000",
+    "https://localhost:8000",
+]
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+}
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=1),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
+}
