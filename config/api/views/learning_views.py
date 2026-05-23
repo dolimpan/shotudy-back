@@ -1,14 +1,22 @@
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.views.decorators.csrf import csrf_exempt
-from api.services.llm_learning import generate_learning_content
-
+from ..services.learning_service import export_word
+import json
 @csrf_exempt
 def learning_function(request):
-    if request.method == "POST":
-        keyword = request.POST.get("keyword")
+    if request.method == 'POST':
+        try:
+            # 1️⃣ JSON 파싱
+            body = json.loads(request.body)
+            text = body.get("word")
 
-        if not keyword:
-            return JsonResponse({"error": "키워드 없음"}, status=400)
+            if not text:
+                return JsonResponse({'error': 'test 값 없음'}, status=400)
 
-        result = generate_learning_content(keyword)
-        return JsonResponse(result)
+            # 2️⃣ LLM 서비스 호출
+            result = export_word(text)
+
+            # 3️⃣ JSON 응답
+            return JsonResponse(result, safe=False)
+        except Exception as e:
+            return HttpResponse(str(e), status=500)

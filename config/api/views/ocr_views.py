@@ -13,4 +13,4 @@ def ocr_function(request):
         if not image: 
             return JsonResponse({'error': '이미지 없음'}, status=400) 
         text = extract_text(image)  
-        return HttpResponse(text)
+        return JsonResponse({"sentence": text})
