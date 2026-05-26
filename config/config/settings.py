@@ -147,12 +147,13 @@ CSRF_TRUSTED_ORIGINS = [
     "https://shotudy.site",
     "https://www.shotudy.site",
 ]
-]
 
 CORS_ALLOWED_ORIGINS = [
     "https://friendly-computing-machine-g4qj4qw9j4pgfp7gg-8000.app.github.dev",
     "http://localhost:8000",
     "https://localhost:8000",
+    "https://shotudy.site",
+    "https://www.shotudy.site",
 ]
 
 REST_FRAMEWORK = {
