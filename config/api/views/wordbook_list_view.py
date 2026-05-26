@@ -11,7 +11,9 @@ from api.serializers.wordbook_list_serializer import (WordBookListSerializer)
 
 from api.serializers.wordbook_auto_create_serializer import (WordBookAutoCreateSerializer)
 
-
+from api.serializers.wordbook_manual_create_serializer import (
+    WordBookManualCreateSerializer
+)
 
 class WordBookListView(APIView):
     permission_classes = [IsAuthenticated]

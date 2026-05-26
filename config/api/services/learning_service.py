@@ -7,6 +7,13 @@ from dotenv import load_dotenv
 load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
+
+#THIS SERVICE IS NO LONGER IN USE#
+#THIS SERVICE IS NO LONGER IN USE#
+#THIS SERVICE IS NO LONGER IN USE#
+#THIS SERVICE IS NO LONGER IN USE#
+
+
 SYSTEM_PROMPT = """
 # Role
 당신은 한국인 학습자를 위한 이중언어 사전 편찬자이자 영어 튜터입니다.

@@ -18,9 +18,7 @@ class WordCard(models.Model):
         max_length=100
     )
 
-    word_grade = models.IntegerField(
-        default=1
-    )
+    word_grade =  models.CharField(max_length=2, default="L1")   
 
     meaning_en = models.CharField(
         max_length=255,
@@ -43,7 +41,7 @@ class WordCard(models.Model):
     )
 
     is_learned = models.BooleanField(
-        default=False
+        null=True, blank=True, default=None
     )
 
     created_at = models.DateTimeField(
