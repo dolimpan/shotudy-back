@@ -29,7 +29,11 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = [
+    "shotudy.site",
+    "www.shotudy.site",
+    "127.0.0.1",
+]
 
 
 # Application definition
@@ -140,6 +144,9 @@ CSRF_TRUSTED_ORIGINS = [
     "https://friendly-computing-machine-g4qj4qw9j4pgfp7gg-8000.app.github.dev",
     "http://localhost:8000",
     "https://localhost:8000",
+    "https://shotudy.site",
+    "https://www.shotudy.site",
+]
 ]
 
 CORS_ALLOWED_ORIGINS = [
