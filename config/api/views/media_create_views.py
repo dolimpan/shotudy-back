@@ -5,7 +5,7 @@ from rest_framework import status
 from api.models.media import Media
 from api.models.episode import Episode
 from api.models.wordbook import WordBook
-from api.models.wordbook_episode_rel import (
+from api.models.wordbookepisoderel import (
     WordBookEpisodeRel
 )
 
@@ -13,9 +13,13 @@ from api.serializers.media_create_serializer import (
     MediaEpisodeCreateSerializer,
 )
 
+from rest_framework.permissions import (
+    IsAuthenticated
+)
 
-class MediaEpisodeCreateView(APIView): permission_classes = [IsAuthenticated]
 
+class MediaEpisodeCreateView(APIView): 
+    permission_classes = [IsAuthenticated]
     def post(self, request):
 
         serializer = MediaEpisodeCreateSerializer(
