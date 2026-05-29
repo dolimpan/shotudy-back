@@ -63,7 +63,7 @@ def save_wordcards(
                 ""
             ),
 
-            is_learned=False
+            is_learned=None
         )
 
         created_cards.append(
