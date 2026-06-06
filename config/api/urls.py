@@ -22,6 +22,8 @@ from rest_framework_simplejwt.views import (
 from api.views.wordcard_learned_update_view import (
     WordCardLearnedUpdateView
 )
+from django.contrib import admin
+
 urlpatterns = [
     path('upload-image/', ocr_function),
     path('llm/', llm_function),
@@ -39,4 +41,5 @@ urlpatterns = [
     path("wordbooks/<int:word_book_id>/episodes/", WordBookEpisodeAddView.as_view()),#add and update integrated
     path("wordbooks/<int:word_book_id>/", WordBookDeleteView.as_view()), #delete and view integrated
     path("analyze/<int:episode_id>/",  AnalyzeSaveView.as_view()),
+    path("admin/", admin.site.urls),
 ]
