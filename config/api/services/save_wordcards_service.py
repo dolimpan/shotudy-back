@@ -32,7 +32,8 @@ def save_wordcards(
 
         exists = WordCard.objects.filter(
             user=user,
-            word=item["word"].lower()
+            sentence__episode=sentence.episode,
+            word__iexact=item["word"]
         ).exists()
 
         if exists:
