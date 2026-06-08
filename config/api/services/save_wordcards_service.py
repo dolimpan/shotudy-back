@@ -30,6 +30,14 @@ def save_wordcards(
 
             continue
 
+        exists = WordCard.objects.filter(
+            user=user,
+            word=item["word"].lower()
+        ).exists()
+
+        if exists:
+            continue
+
         row = WordCard.objects.create(
 
             sentence=sentence,
