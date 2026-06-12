@@ -23,11 +23,11 @@ from api.views.wordcard_learned_update_view import (
     WordCardLearnedUpdateView
 )
 from django.contrib import admin
+from api.views.user_level_view import UserLevelView
 
 urlpatterns = [
     path('upload-image/', ocr_function),
     path('llm/', llm_function),
-    
     path('generate-learning/', learning_function),
     path("medias/", MediaEpisodeCreateView.as_view()),
     path("login/", GoogleLoginView.as_view()),
@@ -42,4 +42,5 @@ urlpatterns = [
     path("wordbooks/<int:word_book_id>/", WordBookDeleteView.as_view()), #delete and view integrated
     path("analyze/<int:episode_id>/",  AnalyzeSaveView.as_view()),
     path("admin/", admin.site.urls),
+    path("userLV/", UserLevelView.as_view()),
 ]
