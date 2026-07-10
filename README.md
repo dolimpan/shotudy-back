@@ -21,6 +21,26 @@ Shotudy는 OCR과 LLM을 활용하여 스크린샷으로부터
 | **CI/CD** | `GitHub Actions` |
 | **Tools** | `Git` `GitHub` `Notion` |<br>
 
+## Architecture
+
+```mermaid
+flowchart TD
+
+A[User Upload Screenshot]
+--> B[OCR]
+
+B --> C[Prompt Engineering]
+
+C --> D[OpenAI API]
+
+D --> E[Django REST API]
+
+E --> F[(PostgreSQL)]
+
+E --> G[React Frontend]
+```
+<br>
+
 ## 주요 기능
 - 🔍 **OCR** : 사용자가 업로드한 이미지에서 텍스트 추출
 - 🤖 **AI 콘텐츠 생성** : LLM을 활용한 학습 콘텐츠 생성
