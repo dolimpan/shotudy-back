@@ -22,22 +22,21 @@ Shotudy는 OCR과 LLM을 활용하여 스크린샷으로부터
 | **Tools** | `Git` `GitHub` `Notion` |<br>
 
 ## Architecture
-
 ```mermaid
-flowchart TD
+flowchart LR
 
-A[User Upload Screenshot]
---> B[OCR]
+A[React Frontend]
+--> B[Django REST API]
 
-B --> C[Prompt Engineering]
+B --> C[OCR]
 
 C --> D[OpenAI API]
 
-D --> E[Django REST API]
+D --> B
 
-E --> F[(PostgreSQL)]
+B --> E[(PostgreSQL)]
 
-E --> G[React Frontend]
+B --> A
 ```
 <br>
 
