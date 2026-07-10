@@ -1,7 +1,9 @@
 (logo)
 # Shotudy-backend
-AI 기반 언어 학습 서비스, Shotudy의 백엔드 레포지토리입니다.<br>
+AI 기반 언어 학습 서비스, Shotudy의 백엔드 레포지토리입니다.<br><br>
 🏆 제14회 육군 창업경진대회 창의상 수상<br>
+🏆 2026 pre-국방 Start-up 챌린지 최우수상 수상<br>
+
 
 ## 프로젝트 소개
 Shotudy는 OCR과 LLM을 활용하여 스크린샷으로부터
